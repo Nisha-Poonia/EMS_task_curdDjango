@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <title>CMS</title>
+  </head>
+  <body style="background-color: rgb(103, 243, 114); color:rgb(43, 104, 8)">
+    <form method="post">
+        {% csrf_token %}
+    <h1 class="bg-info text-center">EMPLOYEE MANAGAMENT SYSTEM</h1>
+    <div class="container">
+      <div class="form-group">
+        <label>Enter Customer ID </label>
+        <input type="text" class="form-control" name="textempid">
+    </div>
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" name="textname" value="{{emp.name}}">
+        </div>
+        <div class="form-group">
+            <label>Address</label>
+            <input type="text" class="form-control" name="textaddress" value="{{emp.address}}">
+        </div>
+        <div class="form-group">
+            <label>Age</label>
+            <input type="text" class="form-control" name="textage" value="{{emp.age}}">
+        </div>
+        <div class="form-group">
+            <label>City</label>
+            <input type="text" class="form-control" name="textcity" value="{{emp.city}}">
+        </div>
+        <div class="form-group">
+            <label>Salary</label>
+            <input type="text" class="form-control" name="textsalary" value="{{emp.salary}}">
+        </div>
+        <div class="form-group">
+            <label>Designation</label>
+            <input type="text" class="form-control" name="textdesig" value="{{emp.designation}}">
+        </div>
+        <div class="form-group text-center">
+          <button class="btn btn-success btn-lg mt-3" name="btnadd" style="margin-right:33px ;">ADD CUSTOMER</button>
+          <button class="btn btn-primary btn-lg mt-3" name="btnsearch" style="margin-right:33px ;">SEARCH CUSTOMER</button>
+          <button class="btn btn-info btn-lg mt-3" name="btnupdate" style="margin-right:33px ;">UPDATE CUSTOMER</button>
+          <button class="btn btn-danger btn-lg mt-3" name="btndelete" style="margin-right:33px ;">DELETE CUSTOMER</button> 
+          <button class="btn btn-warning btn-lg mt-3" name="btnshow" style="margin-right:33px ;">SHOW CUSTOMER</button> 
+
+        </div>
+    </div>
+    <div class="container mt-5">
+    <table class="table table-bordered bg-info">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>NAME</th>
+          <th>ADDRESS</th>
+          <th>AGE</th>
+          <th>CITY</th>
+          <th>SALARY</th>
+          <th>DESIGNATION</th>
+        </tr>
+      </thead>
+      {% for emp in allemp %}
+      <tr>
+        <td>{{emp.id}}</td>
+        <td>{{emp.name}}</td>
+        <td>{{emp.address}}</td>
+        <td>{{emp.age}}</td>
+        <td>{{emp.city}}</td>
+        <td>{{emp.salary}}</td>
+        <td>{{emp.designation}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>   
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+</form>
+  </body>
+</html>
